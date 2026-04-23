@@ -11,6 +11,11 @@ int *createArray(unsigned int length, int value)
 {
     int *array = (int *)malloc(length * sizeof(int));
 
+    if (array == NULL)
+    {
+        return NULL;
+    }
+
     for (unsigned int i = 0; i < length; i++)
     {
         array[i] = value;
@@ -21,7 +26,10 @@ int *createArray(unsigned int length, int value)
 
 int *freeArray(int *array)
 {
-    free(array);
+    if (array != NULL)
+    {
+        free(array);
+    }
     return NULL;
 }
 
