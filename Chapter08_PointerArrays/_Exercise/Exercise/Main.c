@@ -79,17 +79,14 @@ int **freeMatrix(int **matrix, unsigned int num_rows)
 
 int **transposeMatrix(int **matrix, unsigned int num_rows, unsigned int num_cols)
 {
-    int **transposed = (int **)malloc(num_cols * sizeof(int *));
+    int **transposed = createMatrix(num_cols, num_rows, 0);
 
-    for (unsigned int i = 0; i < num_cols; i++)
+    for (unsigned int i = 0; i < num_rows; i++)
     {
-        int *array = (int *)malloc(num_rows * sizeof(int));
-
-        for (unsigned int j = 0; j < num_rows; j++)
+        for (unsigned int j = 0; j < num_cols; j++)
         {
-            array[j] = matrix[j][i];
+            transposed[j][i] = matrix[i][j];
         }
-        transposed[i] = array;
     }
 
     return transposed;
