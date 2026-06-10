@@ -47,6 +47,8 @@ int main()
     strncpy(friends[1], "Peter Ernst", 32); //strncpy is more secure since it limits the amount of characters including the terminator
     strcpy(friends[2], "Paul Bademeister");
 
+    strncat(friends[0], " Nachname", 10); // append a string to another one, length of the new string (including terminator)
+
     for (unsigned int i = 0; i < number_friends; i++)
     {
         printf("%s\n", friends[i]);
@@ -60,6 +62,48 @@ int main()
     printf("%d\n", compare0); // returns zero if both strings are the same
     printf("%d\n", compare1); // otherwise outputs how far the letters are away on the ascii table 
     printf("%d\n", compare2);
+
+    char *found0 = strchr(friends[0], 'i'); //pointer to the part of a string, starting where a character occured first
+    char *found1 = strrchr(friends[2], 'e'); //pointer to the part of a string, starting where a character occured last
+
+    char *found2 = strstr("Automobil", "tom"); //pointer to the part of the string which starts with the second string
+
+    char *token = strtok(friends[2], " "); // returns a pointer to the part of the string until the token is found
+    char *token2 = strtok(friends[2] + 4, " "); // skips the first four characters in the string
+
+    if (token != NULL)
+    {
+        printf("%s\n", token);
+    }
+
+    if(found0 != NULL)
+    {
+        printf("%s\n", found0);
+    }
+    else
+    {
+        printf("Found nothing\n");
+    }
+    if(found1 != NULL)
+    {
+        printf("%s\n", found1);
+    }
+    else
+    {
+        printf("Found nothing\n");
+    }
+    if(found2 != NULL)
+    {
+        printf("%s\n", found2);
+    }
+    else
+    {
+        printf("Found nothing\n");
+    }
+
+
+
+ 
 
     freeFriendsBook(friends, number_friends);
 
