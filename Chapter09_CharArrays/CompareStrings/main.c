@@ -12,7 +12,7 @@ size_t string_length(char *str) //could be int too
     size_t i = 0;
     while(*str != '\0')
     {
-        str++; // gets to the next characterof a string
+        str++; // offsets the pointed character of the string by 1
         i++;
     }
     return i; // null terminator needs to be part of the string!
@@ -24,20 +24,16 @@ int compare_string(char *str0, char *str1)
     {
         return 0;
     }
-    if (string_length(str0) != string_length(str1)) // compare if both strings have the same length
-    {
-        return 0;
-    }
-    int i = 0;
     // compare every character in each string, if a character is different, return 0
     // if no different character was found return 1, both strings are equal!
-    while(i < string_length(str0))
+    while((*str0 != '\0') && (*str1 != '\0'))
     {
-        if (str0[i] != str1[i])
+        if (*str0 != *str1)
         {
             return 0;
         }
-        i++;
+        str0++;
+        str1++;
     }
     return 1;
 }
@@ -45,7 +41,7 @@ int compare_string(char *str0, char *str1)
 
 int main()
 {
-    char string0[] = "Eric";
+    char string0[] = "Erid";
     char string1[] = "Eric";
 
     int compare = compare_string(string0, string1);
