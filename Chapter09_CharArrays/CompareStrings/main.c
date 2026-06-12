@@ -28,6 +28,8 @@ int compare_string(char *str0, char *str1)
     // if no different character was found return 1, both strings are equal!
     while((*str0 != '\0') && (*str1 != '\0'))
     {
+        printf("Comparing '%c' and '%c'\n", *str0, *str1);
+
         if (*str0 != *str1)
         {
             return 0;
